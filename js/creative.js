@@ -89,17 +89,26 @@
     }
   });
   
-  ////https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+    // copy to clipboard and show tooltip
+	//https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+  	$("#copy-to-clipboard-button").tooltip({trigger: "click"});
 
 	$("#copy-to-clipboard-button").click(function() {
 	  var hello = "hello";
 	  var copyText = document.getElementById("promoCode");
 	  copyText.select();
 	  document.execCommand("copy");
-	  alert("Copied to clipboard");
+	  
+	  //alert("Copied to clipboard");
 	  //console.log(copyText.value);
-	 
+		var _this = this;
+
+		setTimeout(function () {
+			$(_this).tooltip('hide');
+		}, 3000)
 	}); 
+
+
 
 })(jQuery); // End of use strict
 
